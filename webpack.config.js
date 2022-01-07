@@ -7,6 +7,7 @@ module.exports = {
     entry: {
         app: ['babel-polyfill', './src/main.js']
     },
+    devtool: "eval",
     output: {
         filename: "main.js",
         path: path.resolve(__dirname, "./dist"),
@@ -22,6 +23,11 @@ module.exports = {
         open: true,
         hot: true,
         historyApiFallback: true,
+    },
+    resolve: {
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js' // 'vue/dist/vue.common.js'  webpack 1용 입니다
+        }
     },
     plugins: [
         new HtmlWebpackPlugin({
